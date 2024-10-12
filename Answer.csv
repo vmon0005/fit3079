@@ -1,9 +1,9 @@
-﻿State,Number of Festivals
-NSW,151
-VIC,110
-QLD,92
-WA,64
-SA,38
-TAS,15
-NT,13
-ACT,8
+﻿State,Number of Festivals,Per Capita
+NSW,151,1.8521
+VIC,110,1.7298
+QLD,92,1.6138
+WA,64,2.4720
+SA,38,2.0879
+TAS,15,1.8521
+NT,13,5.2209
+ACT,8,1.7582
