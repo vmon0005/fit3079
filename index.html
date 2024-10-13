@@ -29,5 +29,17 @@
             })
             .catch(console.error); // Handle errors
     </script>
+<!-- Second visualization -->
+    <div id="vis2"></div> <!-- Container for the second visualization -->
+    
+    <script>
+        // Load the second Vega-Lite JSON specification
+        vegaEmbed('#vis2', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/number_of_festivals.vl.json') // Change this to the path of your new JSON file
+            .then(result => {
+                // Successfully rendered visualization
+                console.log('Second visualization rendered');
+            })
+            .catch(console.error); // Handle errors
+    </script>
 </body>
 </html>
