@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Festivals per Capita",
+  "description": "Bar chart of total festivals by state",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vmon0005/fit3079/main/Answer.csv",
+    "format": {"type": "csv"}
+  },
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "State", "type": "nominal", "title": "State"},
+    "y": {
+      "field": "Per Capita",
+      "type": "quantitative",
+      "title": "Festivals per million residents"
+    },
+    "tooltip": [
+      {"field": "State", "type": "nominal", "title": "State"},
+      {
+        "field": "Number of Festivals",
+        "type": "quantitative",
+        "title": "Total Festivals"
+      }
+    ],
+    "color": {"value": "steelblue"}
+  },
+  "config": {}
+}
