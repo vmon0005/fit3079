@@ -9,15 +9,22 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
         /* Add some basic styling for the visualization container */
-        #vis {
+        .visualization-container {
+            display: flex; /* Use Flexbox to arrange children side by side */
+            justify-content: center; /* Center children horizontally */
+            margin-top: 20px; /* Space above the visualizations */
+        }
+
+        .vis {
             width: 800px;  /* Set your desired width */
             height: 450px; /* Set your desired height */
-            margin: auto;  /* Center the container */
-            margin-bottom: 20px; /* Space between visualizations */
+            margin: 10px;  /* Space between visualizations */
         }
+
         h1 {
             text-align: center; /* Center the title */
         }
+
         .description {
             text-align: center; /* Center the description text */
             margin: 20px;      /* Add some margin for spacing */
@@ -32,34 +39,50 @@
         <p>This visualization presents various insights into the number of festivals by state.</p>
         <p>Feel free to write additional details or explanations here.</p>
     </div>
-    
-    <!-- First visualization -->
-    <div id="vis"></div> <!-- Container for the first visualization -->
-    
-    <script>
-        // Load the first Vega-Lite JSON specification
-        vegaEmbed('#vis', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/visualization.vl.json') // Change this to the path of your JSON file
-            .then(result => {
-                // Successfully rendered visualization
-                console.log('First visualization rendered');
-            })
-            .catch(console.error); // Handle errors
-    </script>
-        <!-- Second visualization -->
-    <div id="vis"></div> <!-- Container for the first visualization -->
-    
 
-    <!-- Third visualization -->
-    <div id="vis2"></div> <!-- Container for the third visualization -->
-    
-    <script>
-        // Load the second Vega-Lite JSON specification
-        vegaEmbed('#vis2', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/number_bar.json') // Change this to the path of your new JSON file
-            .then(result => {
-                // Successfully rendered visualization
-                console.log('Second visualization rendered');
-            })
-            .catch(console.error); // Handle errors
-    </script>
+    <!-- Map container -->
+    <div id="map"></div> <!-- Assuming you have a map visualization here -->
+
+    <!-- Container for the visualizations -->
+    <div class="visualization-container">
+        <!-- First visualization -->
+        <div id="vis" class="vis"></div> <!-- Container for the first visualization -->
+
+        <script>
+            // Load the first Vega-Lite JSON specification
+            vegaEmbed('#vis', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/visualization.vl.json') // Change this to the path of your JSON file
+                .then(result => {
+                    // Successfully rendered visualization
+                    console.log('First visualization rendered');
+                })
+                .catch(console.error); // Handle errors
+        </script>
+
+        <!-- Second visualization -->
+        <div id="vis2" class="vis"></div> <!-- Container for the second visualization -->
+
+        <script>
+            // Load the second Vega-Lite JSON specification
+            vegaEmbed('#vis2', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/number_bar.json') // Change this to the path of your new JSON file
+                .then(result => {
+                    // Successfully rendered visualization
+                    console.log('Second visualization rendered');
+                })
+                .catch(console.error); // Handle errors
+        </script>
+
+        <!-- Third visualization -->
+        <div id="vis3" class="vis"></div> <!-- Container for the third visualization -->
+
+        <script>
+            // Load the third Vega-Lite JSON specification
+            vegaEmbed('#vis3', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/bar_per_capita.json') // Change this to the path of your new JSON file
+                .then(result => {
+                    // Successfully rendered visualization
+                    console.log('Third visualization rendered');
+                })
+                .catch(console.error); // Handle errors
+        </script>
+    </div>
 </body>
 </html>
