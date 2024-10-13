@@ -13,23 +13,40 @@
             width: 800px;  /* Set your desired width */
             height: 450px; /* Set your desired height */
             margin: auto;  /* Center the container */
+            margin-bottom: 20px; /* Space between visualizations */
+        }
+        h1 {
+            text-align: center; /* Center the title */
+        }
+        .description {
+            text-align: center; /* Center the description text */
+            margin: 20px;      /* Add some margin for spacing */
+            font-size: 16px;   /* Adjust font size */
         }
     </style>
 </head>
 <body>
     <h1>Vega-Lite Visualization Example</h1>
-    <div id="vis"></div> <!-- Container for the visualization -->
-
+    <div class="description">
+        <!-- Add your description here -->
+        <p>This visualization presents various insights into the number of festivals by state.</p>
+        <p>Feel free to write additional details or explanations here.</p>
+    </div>
+    
+    <!-- First visualization -->
+    <div id="vis"></div> <!-- Container for the first visualization -->
+    
     <script>
-        // Load the Vega-Lite JSON specification
+        // Load the first Vega-Lite JSON specification
         vegaEmbed('#vis', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/visualization.vl.json') // Change this to the path of your JSON file
             .then(result => {
                 // Successfully rendered visualization
-                console.log('Visualization rendered');
+                console.log('First visualization rendered');
             })
             .catch(console.error); // Handle errors
     </script>
-<!-- Second visualization -->
+
+    <!-- Second visualization -->
     <div id="vis2"></div> <!-- Container for the second visualization -->
     
     <script>
