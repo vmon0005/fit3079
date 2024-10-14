@@ -34,8 +34,8 @@
         "domain": ["0-4", "5-24", "25-49", "50-99", "100+"],
         "range": ["#edf8fb", "#b3cde3", "#8c96c6", "#8856a7", "#810f7c"]
       },
-      "title": "Festival State and Genre Heatmap",
-      "legend": {"titleFontSize": 15, "labelFontSize": 18}
+      "title": "Number of festivals",
+      "legend": {"titleFontSize": 13, "labelFontSize": 18}
     }
   },
   "config": {"axis": {"labelAngle": 0}}
