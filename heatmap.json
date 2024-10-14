@@ -1,0 +1,42 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A heatmap showing the number of festivals by genre and state using categorical ranges.",
+  "data": {
+    "url": "https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/heatmap.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "fold": ["ACT", "NSW", "NT", "QLD", "SA", "TAS", "VIC", "WA"],
+      "as": ["State", "Count"]
+    }
+  ],
+  "mark": "rect",
+  "width": 600,
+  "height": 600,
+  "encoding": {
+    "x": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State",
+      "axis": {"labelFontSize": 18, "labelPadding": 10}
+    },
+    "y": {
+      "field": "Row Labels",
+      "type": "nominal",
+      "title": "Genre",
+      "axis": {"labelFontSize": 20, "labelPadding": 10}
+    },
+    "color": {
+      "field": "Count",
+      "type": "ordinal",
+      "scale": {
+        "domain": ["0-4", "5-24", "25-49", "50-99", "100+"],
+        "range": ["#edf8fb", "#b3cde3", "#8c96c6", "#8856a7", "#810f7c"]
+      },
+      "title": "Festival State and Genre Heatmap",
+      "legend": {"titleFontSize": 20, "labelFontSize": 18}
+    }
+  },
+  "config": {"axis": {"labelAngle": 0}}
+}
