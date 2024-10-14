@@ -12,20 +12,20 @@
     }
   ],
   "mark": "rect",
-  "width": 500,
-  "height": 500,
+  "width": 400,
+  "height": 400,
   "encoding": {
     "x": {
       "field": "State",
       "type": "nominal",
       "title": "State",
-      "axis": {"labelFontSize": 18, "labelPadding": 10}
+      "axis": {"labelFontSize": 15, "labelPadding": 10}
     },
     "y": {
       "field": "Row Labels",
       "type": "nominal",
       "title": "Genre",
-      "axis": {"labelFontSize": 20, "labelPadding": 10}
+      "axis": {"labelFontSize": 15, "labelPadding": 10}
     },
     "color": {
       "field": "Count",
@@ -35,7 +35,7 @@
         "range": ["#edf8fb", "#b3cde3", "#8c96c6", "#8856a7", "#810f7c"]
       },
       "title": "Festival State and Genre Heatmap",
-      "legend": {"titleFontSize": 20, "labelFontSize": 18}
+      "legend": {"titleFontSize": 15, "labelFontSize": 18}
     }
   },
   "config": {"axis": {"labelAngle": 0}}
