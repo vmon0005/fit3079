@@ -8,81 +8,150 @@
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
     <style>
-        /* Add some basic styling for the visualization container */
-        .visualization-container {
-            display: flex; /* Use Flexbox to arrange children side by side */
-            justify-content: center; /* Center children horizontally */
-            margin-top: 20px; /* Space above the visualizations */
-        }
-
-        .vis {
-            width: 800px;  /* Set your desired width */
-            height: 450px; /* Set your desired height */
-            margin: 10px;  /* Space between visualizations */
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         h1 {
-            text-align: center; /* Center the title */
+            text-align: center;
+            font-size: 36px;
+            color: #4CAF50;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .description {
-            text-align: center; /* Center the description text */
-            margin: 20px;      /* Add some margin for spacing */
-            font-size: 16px;   /* Adjust font size */
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+            margin: 10px 0;
+            text-align: justify;
+        }
+
+        /* Container Styling for Sight Line Alignment */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            gap: 30px;
+        }
+
+        .visualization-text-container,
+        .bar-chart-container,
+        .heatmap-text-container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .side-text, .description {
+            flex: 1;
+            max-width: 400px;
+            margin-left: 20px;
+        }
+
+        .vis, .bar-chart, .heatmap {
+            flex: 1;
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 16 / 9;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .bar-charts-wrapper {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
         }
     </style>
 </head>
 <body>
-    <h1>Vega-Lite Visualization Example</h1>
-    <div class="description">
-        <!-- Add your description here -->
-        <p>This visualization presents various insights into the number of festivals by state.</p>
-        <p>Feel free to write additional details or explanations here.</p>
+
+    <h1>Australian Music Festivals 2023 Snapshot</h1>
+
+    <div class="content-wrapper">
+        <!-- First Visualization and Text -->
+        <div class="visualization-text-container">
+            <div class="side-text">
+                <p>Australia has a vibrant and growing live music industry, and the ultimate form of live music events are festivals. Music festivals generally feature dozens of artists and can last multiple days. Further, they can feature many different genres of music. This visualization presents a snapshot of the current Australian festival scene, with all data referencing festivals held in 2023.</p>
+                <p>These days, large festivals often host artists that represent a wide range of genres. In this page, these are represented as "Multiple Genres". Generally, this includes pop, hip-hop, indie, and EDM.</p>
+            </div>
+            <div id="vis" class="vis"></div>
+        </div>
+
+        <script>
+            vegaEmbed('#vis', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/visualization.vl.json')
+                .then(result => console.log('First visualization rendered'))
+                .catch(console.error);
+        </script>
+
+        <!-- Bar Chart Section -->
+        <div class="bar-chart-container">
+            <div class="bar-charts-wrapper">
+                <div id="vis2" class="bar-chart"></div>
+                <script>
+                    vegaEmbed('#vis2', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/number_bar.json')
+                        .then(result => console.log('Second visualization rendered'))
+                        .catch(console.error);
+                </script>
+
+                <div id="vis3" class="bar-chart"></div>
+                <script>
+                    vegaEmbed('#vis3', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/bar_per_capita.json')
+                        .then(result => console.log('Third visualization rendered'))
+                        .catch(console.error);
+                </script>
+            </div>
+
+            <div class="description">
+                <p>The festival capital of Australia is New South Wales, which hosted 151 festivals in 2023. This was followed by Victoria and Western Australia. However, these are by far the most populated states. Comparing to normalised festivals per million people, the Northern Territory hosts by far the most festivals compared to its population, holding 13 festivals despite having a population of just 253,000.</p>
+            </div>
+        </div>
+
+        <!-- Heatmap and Text Section -->
+        <div class="heatmap-text-container">
+            <div class="heatmap" id="vis4"></div>
+            <div class="side-text">
+                <p>This heatmap shows the distribution of festivals by state and genre. As expected, multiple genre festivals dominate across the board. However, Victoria has a higher proportion of Jazz-focused festivals, reflecting Melbourne's cultural reputation. Additionally, the Northern Territory has a higher proportion of Indigenous festivals, indicative of its significant Indigenous population.</p>
+            </div>
+        </div>
+
+        <script>
+            vegaEmbed('#vis4', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/heatmap.json')
+                .then(result => console.log('Heatmap rendered'))
+                .catch(console.error);
+        </script>
     </div>
 
-    <!-- Map container -->
-    <div id="map"></div> <!-- Assuming you have a map visualization here -->
+    <footer>
+        &copy; Vladislav Monakhov FIT3079 Assignment 2. Main Source: "Soundcheck: Insights into Australia’s music festival sector"
+    </footer>
 
-    <!-- Container for the visualizations -->
-    <div class="visualization-container">
-        <!-- First visualization -->
-        <div id="vis" class="vis"></div> <!-- Container for the first visualization -->
-
-        <script>
-            // Load the first Vega-Lite JSON specification
-            vegaEmbed('#vis', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/visualization.vl.json') // Change this to the path of your JSON file
-                .then(result => {
-                    // Successfully rendered visualization
-                    console.log('First visualization rendered');
-                })
-                .catch(console.error); // Handle errors
-        </script>
-
-        <!-- Second visualization -->
-        <div id="vis2" class="vis"></div> <!-- Container for the second visualization -->
-
-        <script>
-            // Load the second Vega-Lite JSON specification
-            vegaEmbed('#vis2', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/number_bar.json') // Change this to the path of your new JSON file
-                .then(result => {
-                    // Successfully rendered visualization
-                    console.log('Second visualization rendered');
-                })
-                .catch(console.error); // Handle errors
-        </script>
-
-        <!-- Third visualization -->
-        <div id="vis3" class="vis"></div> <!-- Container for the third visualization -->
-
-        <script>
-            // Load the third Vega-Lite JSON specification
-            vegaEmbed('#vis3', 'https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/bar_per_capita.json') // Change this to the path of your new JSON file
-                .then(result => {
-                    // Successfully rendered visualization
-                    console.log('Third visualization rendered');
-                })
-                .catch(console.error); // Handle errors
-        </script>
-    </div>
 </body>
 </html>
