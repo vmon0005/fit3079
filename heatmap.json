@@ -1,6 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "A heatmap showing the number of festivals by genre and state using categorical ranges.",
+  "title": "Heatmap of festivals by state and genre",
   "data": {
     "url": "https://raw.githubusercontent.com/vmon0005/fit3079/refs/heads/main/heatmap.csv",
     "format": {"type": "csv"}
